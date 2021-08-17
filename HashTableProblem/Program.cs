@@ -29,7 +29,12 @@ namespace HashTableProblem
             int count = 1;
             foreach (string word in samplephrase)
             {
-                if (hash.ContainsKey(word))
+                // remove "avoidable" either at creating hashTable
+                if (word == "avoidable")
+                {
+                    continue;
+                }
+                else if (hash.ContainsKey(word))
                 {
                     count = hash.GetValue(word) + 1;
                     hash.Remove(word);
@@ -41,7 +46,9 @@ namespace HashTableProblem
                 }
             }
 
-
+            // or after creating hashTable
+            // hash.Remove("avoidable");
+           
             // Print the result
             Console.WriteLine($"{"Frequency", 20} | {"Count", 10}\n");
             foreach (string key in phrase)
