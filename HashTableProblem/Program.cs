@@ -11,7 +11,8 @@ namespace HashTableProblem
             Console.WriteLine("HashTable Program\n");
 
             // Convert phrase to string array using split method
-            string[] samplephrase = "To be or not to be".ToLower().Split(" ");
+            string temp = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+            string[] samplephrase = temp.ToLower().Split(" ");
             
             // get only distinct elements
             var phrase = samplephrase.Distinct();
@@ -40,8 +41,14 @@ namespace HashTableProblem
                 }
             }
 
+
             // Print the result
-            Console.WriteLine($"Frequency of \"to\" is {hash.GetValue("to")}");
+            Console.WriteLine($"{"Frequency", 20} | {"Count", 10}\n");
+            foreach (string key in phrase)
+            {
+                Console.WriteLine($"{key, 20} | {hash.GetValue(key), 10}");
+            }
+
         }
     }
 }
